@@ -60,20 +60,25 @@ function draw() {
     strokeWeight(2);
     stroke(c);
 
+    var arcArgs;
+    var arcX;
     if (x1 < x2) {
+      arcX = x1 + arcSize/2;
       if (up) {
-        arc(x1 + arcSize/2, y, arcSize, arcSize, PI, 0)
+        arcArgs = [arcX, y, arcSize, arcSize, PI, 0]
       } else {
-        arc(x1 + arcSize/2, y, arcSize, arcSize, 0, PI)
+        arcArgs = [arcX, y, arcSize, arcSize, 0, PI]
       }
     } else {
+      arcX = x1 - arcSize/2;
       if (up) {
-        arc(x1 - arcSize/2, y, arcSize, arcSize, PI, 0)
+        arcArgs = [arcX, y, arcSize, arcSize, PI, 0]
       } else {
-        arc(x1 - arcSize/2, y, arcSize, arcSize, 0, PI)
+        arcArgs = [arcX, y, arcSize, arcSize, 0, PI]
       }
     }
 
+    arc(...arcArgs)
     up = !up;
     i++
   }
