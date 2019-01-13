@@ -55,7 +55,7 @@ function setup() {
   rectMode(CENTER);
 }
 
-var c = 1;
+var c = 0;
 var pIndex = 0;
 var up = true;
 var hold = false;
@@ -63,7 +63,7 @@ var showRect = false;
 
 function draw() {
   // handle the loop to decide which to render
-  if (c % transitionDuration === 0) {
+  if (c % transitionDuration === 0 && !(c === 0 && up)) { 
 
     // flash special rect
     if( pIndex === order.length - 2 && up ) {
