@@ -63,7 +63,7 @@ var showRect = false;
 
 function draw() {
   // handle the loop to decide which to render
-  if (c % transitionDuration === 0 && !(c === 0 && up)) { 
+  if (c % transitionDuration === 0 && !(c === 0 && up)) {
 
     // flash special rect
     if( pIndex === order.length - 2 && up ) {
