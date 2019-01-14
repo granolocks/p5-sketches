@@ -13,7 +13,7 @@ const canvasX = 800;
 const radius = 300;
 const pointSize = 6;
 
-const theta_vel = 0.1; // degrees / frame
+const theta_vel = 0.2; // degrees / frame
 var theta = 0;
 
 function Point(x,y) {
@@ -27,7 +27,7 @@ function roundFloat(i){
 
 function polarToCartesian(radius, theta) {
   let x = radius * cos(theta);
-  let y = radius * sin(theta)
+  let y = radius * sin(theta);
   return new Point(x,y);
 }
 
@@ -44,42 +44,44 @@ function draw() {
   // set up some helpful variables for drawing the current angle, triangle and cord
   let p = polarToCartesian(radius, theta);
   let t_base = dist(0,0, p.x, 0);
-  let t_height = dist(0,0, 0, p.y)
+  let t_height = dist(0,0, 0, p.y);
   let cordEnd;
   if (cos(theta) > 0) {
-    cordEnd = new Point(radius, 0)
+    cordEnd = new Point(radius, 0);
   } else {
-    cordEnd = new Point(-radius, 0)
+    cordEnd = new Point(-radius, 0);
   }
 
   // draw text in the upper corner before translating
   noStroke()
-  text('θ: ' + roundFloat(abs(theta))+"°", 10, 20) // abs() is used because we are using an inverted Y and using a negative angle to move counterclockwise
+
+  fill('255');
+  text('θ: ' + roundFloat(abs(theta))+"°", 10, 20); // abs() is used because we are using an inverted Y and using a negative angle to move counterclockwise
   fill('pink');
-  text('sin(θ): ' + roundFloat(-sin(theta)), 10,40) // inverted
+  text('sin(θ): ' + roundFloat(-sin(theta)), 10,40); // inverted
   fill('green');
-  text('cos(θ): ' + roundFloat(cos(theta)), 10,60)
+  text('cos(θ): ' + roundFloat(cos(theta)), 10,60);
   fill('yellow');
-  text('tan(θ): ' + roundFloat(tan(theta)), 10,80)
+  text('tan(θ): ' + roundFloat(tan(theta)), 10,80);
   fill('rgb(255,204,0)');
-  text('triangle area: ' + roundFloat(((t_base/radius) * (t_height/radius) ) / 2) + "r^2" , 10, 100)
+  text('triangle area: ' + roundFloat(((t_base/radius) * (t_height/radius) ) / 2) + "r^2" , 10, 100);
   fill('red');
-  text('cord length: ' + roundFloat(dist(p.x, p.y, cordEnd.x, cordEnd.y)/radius) + "r", 10,120)
+  text('cord length: ' + roundFloat(dist(p.x, p.y, cordEnd.x, cordEnd.y)/radius) + "r", 10,120);
 
   //  move to the center of the canvas
   translate(canvasX/2, canvasY/2);
   stroke(51);
 
   // draw x/y axes
-  line(-canvasX/2,0,canvasX/2,0)
-  line(0, -canvasY/2,0,canvasX/2,0)
+  line(-canvasX/2, 0, canvasX/2, 0);
+  line(0, -canvasY/2, 0, canvasY/2);
 
   // write lables around circle
   fill(255);
   text("0", radius + 10, 5);
-  text("3π / 2", -20, radius + 20)
-  text("π", -radius - 20, 5)
-  text("π / 2", -15, -radius - 10)
+  text("3π / 2", -20, radius + 20);
+  text("π", -radius - 20, 5);
+  text("π / 2", -15, -radius - 10);
 
   // upper right (y inverted)
   line(0,0,radius*(1/2),-radius*(sqrt(3)/2));
@@ -115,21 +117,21 @@ function draw() {
 
   // draw the triangle
   fill('rgba(255,204,0,0.25)');
-  triangle(0,0, p.x, p.y, p.x, 0)
+  triangle(0,0, p.x, p.y, p.x, 0);
 
   // draw the cord line
   noFill();
   stroke('red');
-  line(p.x, p.y, cordEnd.x, cordEnd.y)
+  line(p.x, p.y, cordEnd.x, cordEnd.y);
 
   // draw the unit circle
   stroke(255);
   ellipse(0,0,radius*2);
 
   // draw the point
-  fill(255)
-  ellipse(p.x, p.y, pointSize)
-  line(0,0, p.x, p.y)
+  fill(255);
+  ellipse(p.x, p.y, pointSize);
+  line(0,0, p.x, p.y);
 
   // sin line
   stroke('pink');
@@ -141,7 +143,7 @@ function draw() {
 
   // reset if we have come full circle other wise decrease angle to move counter
   // clockwise
-  if (360 - theta <= theta_vel) {
+  if (360 + theta <= theta_vel) {
     theta = 0
   } else {
     theta -= theta_vel
