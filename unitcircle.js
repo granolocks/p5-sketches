@@ -1,12 +1,11 @@
 
-  // NOTE in a lot of this code I had to invert the Y axis and sin values that I
-  // am printing because p5.js uses an inverted y axis where the default 0,0 is
-  // the upper left corner of the screen and it goes up as it moves towards the
-  // bottom
-  //
-  // TL;DR in p5 moving odwn the screen is going up in y value. look for negative
-  // numbers being randomly inserted in weird places
-
+// NOTE in a lot of this code I had to invert the Y axis and sin values that I
+// am printing because p5.js uses an inverted y axis where the default 0,0 is
+// the upper left corner of the screen and it goes up as it moves towards the
+// bottom
+//
+// TL;DR in p5 moving odwn the screen is going up in y value. look for negative
+// numbers being randomly inserted in weird places
 
 const canvasY = 800;
 const canvasX = 800;
@@ -16,11 +15,6 @@ const pointSize = 6;
 const theta_vel = 0.2; // degrees / frame
 var theta = 0;
 
-function Point(x,y) {
-   this.x = x;
-   this.y = y;
-}
-
 function roundFloat(i){
    return +(Math.round(i + "e+5")  + "e-5");
 }
@@ -28,7 +22,7 @@ function roundFloat(i){
 function polarToCartesian(radius, theta) {
   let x = radius * cos(theta);
   let y = radius * sin(theta);
-  return new Point(x,y);
+  return createVector(x,y);
 }
 
 function setup() {
@@ -47,9 +41,9 @@ function draw() {
   let t_height = dist(0,0, 0, p.y);
   let cordEnd;
   if (cos(theta) > 0) {
-    cordEnd = new Point(radius, 0);
+    cordEnd = createVector(radius, 0);
   } else {
-    cordEnd = new Point(-radius, 0);
+    cordEnd = createVector(-radius, 0);
   }
 
   // draw text in the upper corner before translating
@@ -78,10 +72,17 @@ function draw() {
 
   // write lables around circle
   fill(255);
-  text("0", radius + 10, 5);
+  text("[1, 0]", radius + 10, 10);
+  text("0", radius + 10, -5);
+
+  text("[0, -1]", -20, radius + 35);
   text("3π / 2", -20, radius + 20);
-  text("π", -radius - 20, 5);
-  text("π / 2", -15, -radius - 10);
+
+  text("[-1, 0]", -radius - 45, 10);
+  text("π", -radius - 45, -5);
+
+  text("[0, 1]", -15, -radius - 10);
+  text("π / 2", -15, -radius - 25);
 
   // upper right (y inverted)
   line(0,0,radius*(1/2),-radius*(sqrt(3)/2));
@@ -116,13 +117,24 @@ function draw() {
   text("2π / (120°)", -radius*(1/2) - 72, -radius*(sqrt(3)/2) );
 
   // draw the triangle
-  fill('rgba(255,204,0,0.25)');
+  fill('rgba(255,204,0,0.5)');
   triangle(0,0, p.x, p.y, p.x, 0);
 
   // draw the cord line
   noFill();
   stroke('red');
   line(p.x, p.y, cordEnd.x, cordEnd.y);
+
+
+  // draw the (fake)tangent line
+  stroke('yellow');
+  translate(p.x,p.y)
+  rotate(theta + 90)
+  line(-canvasX, 0, canvasX, 0)
+  console.log(theta)
+  // // console.log(p.normalize())
+  resetMatrix()
+  translate(canvasX/2, canvasY/2)
 
   // draw the unit circle
   stroke(255);
