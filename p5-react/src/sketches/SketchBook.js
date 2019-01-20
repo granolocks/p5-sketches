@@ -34,8 +34,8 @@ class SketchBook extends Component {
       "Recaman": <Recaman />,
       "Unit Circle": <UnitCircle />,
       "Dying Light Loader": <DyingLightLoader />,
-      "NoC Random Walkers": <RandomWalker />,
-      "Perlin Noise Graph (slow)": <PerlinNoiseGraph />
+      "Perlin Noise Graph (slow)": <PerlinNoiseGraph />,
+      "NoC Random Walkers": <RandomWalker />
     }
   }
 

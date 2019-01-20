@@ -5,7 +5,7 @@ function Walker(p, color, stepFn) {
   this.step = stepFn;
   this.display = function(){
     p.fill(color);
-    p.ellipse(this.x, this.y, 5, 5)
+    p.ellipse(this.x, this.y, 10, 10)
   }
   this.edges = function() {
     if (this.x < 0) {
@@ -21,20 +21,22 @@ function Walker(p, color, stepFn) {
     }
   }
   this.doGo = function() {
-    this.step();
-    this.edges();
-    this.display();
+    for (var i=0; i < 25; i++) {
+      this.step();
+      this.edges();
+      this.display();
+    }
   }
 }
 
 export default function (p) {
   p.setup = function() {
-    p.createCanvas(1000, 500);
-    p.background(222);
-    p.noStroke()
+    p.createCanvas(1920, 1080);
+    p.background(0);
+    p.stroke(1);
+    p.strokeWeight(0.5);
 
-
-    p.random = new Walker(p, 'red', function() {
+    p.random = new Walker(p, 'DarkOrange', function() {
         switch (Math.floor(Math.random() * Math.floor(4))) {
           case 0:
             this.y++
@@ -52,16 +54,24 @@ export default function (p) {
       }
     );
 
-    p.perlinMeta = {tx:0,ty:10000};
-    p.perlinWalker = new Walker(p, 'hotpink', function() {
+    p.perlinMeta = { tx:0, ty:100 };
+    p.perlinWalker = new Walker(p, 'PapayaWhip', function() {
       this.x = p.map(p.noise(p.perlinMeta.tx), 0, 1, 0, p.width);
       this.y = p.map(p.noise(p.perlinMeta.ty), 0, 1, 0, p.height);
       p.perlinMeta.tx += 0.01
       p.perlinMeta.ty += 0.01
       }
     );
+    p.perlinMeta2 = { tx:0, ty:10000 };
+    p.perlinWalker2 = new Walker(p, 'Crimson', function() {
+      this.x = p.map(p.noise(p.perlinMeta2.tx), 0, 1, p.width/4, p.width/4*3);
+      this.y = p.map(p.noise(p.perlinMeta2.ty), 0, 1, p.height/4, p.height/4*3);
+      p.perlinMeta2.tx += 0.01
+      p.perlinMeta2.ty += 0.01
+      }
+    );
 
-    p.leftLeaning = new Walker(p, 'green', function() {
+    p.leftLeaning = new Walker(p, 'SpringGreen', function() {
       let s = Math.random(1);
       if  (0 < s && s <= 0.2) {
         this.y++
@@ -74,8 +84,34 @@ export default function (p) {
     }
   }
   );
+  p.upLeaning = new Walker(p, 'yellow', function() {
+    let s = Math.random(1);
+    if  (0 < s && s <= 0.2) {
+      this.x--
+    } else if (0.2 < s && s <= 0.4) {
+       this.x++
+    } else if (0.4 < s && s <= 0.6) {
+      this.y++
+    } else{
+      this.y--
+  }
+}
+);
+p.slanty = new Walker(p, 'Magenta', function() {
+  let s = Math.random(1);
+  if  (0 < s && s <= 0.4) {
+    this.y--
+  } else if (0.4 < s && s <= 0.8) {
+     this.x--
+  } else if (0.8 < s && s <= 0.9) {
+    this.y++
+  } else{
+    this.x++
+}
+}
+);
 
-  p.threeWay = new Walker(p, 'blue', function() {
+  p.threeWay = new Walker(p, 'LightYellow', function() {
     let stepX = Math.floor(Math.random() * Math.floor(3)) -1;
     let stepY = Math.floor(Math.random() * Math.floor(3)) -1;
     this.x += stepX;
@@ -89,5 +125,8 @@ export default function (p) {
     p.leftLeaning.doGo()
     p.threeWay.doGo()
     p.perlinWalker.doGo()
+    p.perlinWalker2.doGo()
+    p.upLeaning.doGo()
+    p.slanty.doGo()
   }
 }
