@@ -9,6 +9,7 @@ import Recaman  from './5-Recaman/Recaman'
 import UnitCircle  from './6-UnitCircle/UnitCircle'
 import DyingLightLoader  from './7-DyingLightLoader/DyingLightLoader'
 import RandomWalker  from './NoC-RandomWalker/RandomWalker'
+import PerlinNoiseGraph  from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
 
 class SketchBook extends Component {
 
@@ -33,7 +34,8 @@ class SketchBook extends Component {
       "Recaman": <Recaman />,
       "Unit Circle": <UnitCircle />,
       "Dying Light Loader": <DyingLightLoader />,
-      "NoC Random Walkers": <RandomWalker />
+      "NoC Random Walkers": <RandomWalker />,
+      "Perlin Noise Graph (slow)": <PerlinNoiseGraph />
     }
   }
 
