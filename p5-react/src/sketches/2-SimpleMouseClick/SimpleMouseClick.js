@@ -9,7 +9,11 @@ class SimpleMouseClick extends Component {
 
   render() {
     return (
-      <div id="simpleMouseClick"></div>
+      <div>
+        <div id="simpleMouseClick"></div>
+        <h3>&nbsp;Source Code</h3>
+        <pre style={{overflow: 'scroll', height: '500px', width: '800px', backgroundColor: 'white', padding: '1em', marginLeft: '1em'}}>{'' + sketch}</pre>
+      </div>
     );
   }
 }
