@@ -42,8 +42,8 @@ class SketchBook extends Component {
               return(<li onClick={this.sketchClicked}>{key}</li>);
             })}
            </ul>
-           <div style={{backgroundColor: 'lightblue', position: 'fixed', top: 0, left: 250, width: '100%', height: '100%', textAlign: 'left'}}>
-           {this.sketches()[this.state.activeSketch]}
+           <div style={{overflow: 'scroll', backgroundColor: 'lightblue', position: 'fixed', top: 0, left: 250, width: '100%', height: '100%', textAlign: 'left'}}>
+            {this.sketches()[this.state.activeSketch]}
           </div>
       </div>
     );
