@@ -8,6 +8,7 @@ import PieChart  from './4-PieChart/PieChart'
 import Recaman  from './5-Recaman/Recaman'
 import UnitCircle  from './6-UnitCircle/UnitCircle'
 import DyingLightLoader  from './7-DyingLightLoader/DyingLightLoader'
+import RandomWalker  from './NoC-RandomWalker/RandomWalker'
 
 class SketchBook extends Component {
 
@@ -17,8 +18,9 @@ class SketchBook extends Component {
     this.sketches = this.sketches.bind(this);
     this.sketchClicked = this.sketchClicked.bind(this);
 
+    let sketchKeys = Object.keys(this.sketches());
     this.state = {
-      activeSketch: Object.keys(this.sketches())[0]
+      activeSketch: sketchKeys[sketchKeys.length - 1]
     }
   }
 
@@ -30,7 +32,8 @@ class SketchBook extends Component {
       "Pie Chart": <PieChart />,
       "Recaman": <Recaman />,
       "Unit Circle": <UnitCircle />,
-      "Dying Light Loader": <DyingLightLoader />
+      "Dying Light Loader": <DyingLightLoader />,
+      "NoC Random Walkers": <RandomWalker />
     }
   }
 
