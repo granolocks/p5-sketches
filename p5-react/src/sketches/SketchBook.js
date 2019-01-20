@@ -34,12 +34,14 @@ class SketchBook extends Component {
   render() {
     return (
       <div id="SketchBook">
-           <ul>
-           {Object.keys(this.sketches()).map((key) => {
-             return(<li onClick={this.sketchClicked}>{key}</li>);
-           })}
+           <ul style={{position: 'fixed', top: 0, left: 0, height: '100%', textAlign: 'left', width: '250px'}}>
+            {Object.keys(this.sketches()).map((key) => {
+              return(<li onClick={this.sketchClicked}>{key}</li>);
+            })}
            </ul>
-          {this.sketches()[this.state.activeSketch]}
+           <div style={{backgroundColor: 'lightblue', position: 'fixed', top: 0, left: 250, width: '100%', height: '100%', textAlign: 'left'}}>
+           {this.sketches()[this.state.activeSketch]}
+          </div>
       </div>
     );
   }
