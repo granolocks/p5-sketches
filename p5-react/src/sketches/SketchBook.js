@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SketchBook.css';
 
 import SimpleCircle  from './1-SimpleCircle/SimpleCircle'
 import SimpleMouseClick  from './2-SimpleMouseClick/SimpleMouseClick'
@@ -22,12 +23,12 @@ class SketchBook extends Component {
 
   sketches() {
     return {
-      "1 Simple Circle": <SimpleCircle />,
-      "2 Simple Mouse Click": <SimpleMouseClick />,
-      "3 Simple Trig": <SimpleTrig />,
-      "4 Pie Chart": <PieChart />,
-      "5 Recaman": <Recaman />,
-      "6 Unit Circle": <UnitCircle />,
+      "Simple Circle": <SimpleCircle />,
+      "Simple Mouse Click": <SimpleMouseClick />,
+      "Simple Trig": <SimpleTrig />,
+      "Pie Chart": <PieChart />,
+      "Recaman": <Recaman />,
+      "Unit Circle": <UnitCircle />,
     }
   }
 
@@ -38,12 +39,12 @@ class SketchBook extends Component {
   render() {
     return (
       <div id="SketchBook">
-           <ul style={{position: 'fixed', top: 0, left: 0, height: '100%', textAlign: 'left', width: '250px'}}>
+           <ol>
             {Object.keys(this.sketches()).map((key) => {
-              return(<li onClick={this.sketchClicked}>{key}</li>);
+              return(<li className={key === this.state.activeSketch ? 'active' : ''} onClick={this.sketchClicked}>{key}</li>);
             })}
-           </ul>
-           <div style={{overflow: 'scroll', backgroundColor: 'lightblue', position: 'fixed', top: 0, left: 250, width: '100%', height: '100%', textAlign: 'left'}}>
+           </ol>
+           <div style={}>
             {this.sketches()[this.state.activeSketch]}
           </div>
       </div>

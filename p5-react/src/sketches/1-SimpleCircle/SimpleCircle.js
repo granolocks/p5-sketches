@@ -12,8 +12,9 @@ class SimpleCircle extends Component {
       <div>
         <div id="simpleCircle"></div>
         <h3>&nbsp;Source Code</h3>
-        <pre style={{overflow: 'scroll', height: '500px', width: '800px', backgroundColor: 'white', padding: '1em', marginLeft: '1em'}}>{'' + sketch}</pre>
-      </div>    );
+        <pre>{'' + sketch}</pre>
+      </div>
+    );
   }
 }
 
