@@ -41,10 +41,10 @@ class SketchBook extends Component {
       <div id="SketchBook">
            <ol>
             {Object.keys(this.sketches()).map((key) => {
-              return(<li className={key === this.state.activeSketch ? 'active' : ''} onClick={this.sketchClicked}>{key}</li>);
+              return(<li key={key} className={key === this.state.activeSketch ? 'active' : ''} onClick={this.sketchClicked}>{key}</li>);
             })}
            </ol>
-           <div style={}>
+           <div className="sketchWrapper">
             {this.sketches()[this.state.activeSketch]}
           </div>
       </div>

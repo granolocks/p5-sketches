@@ -15,16 +15,17 @@
 #SketchBook li:hover {text-decoration: underline;}
 #SketchBook li.active {background-color: #ccc;}
 
-#SketchBook div.sketch-wrapper {
+#SketchBook .sketchWrapper {
   overflow: scroll;
-  backgroundColor: lightblue;
+  background-color: lightblue;
   position: fixed;
   top: 0;
-  left: 250;
+  left: 250px;
   width: 100%;
   height: 100%;
-  textAlign: left;
+  text-align: left;
 }
+
 #SketchBook  pre {
   overflow: scroll;
   height: 500px;
