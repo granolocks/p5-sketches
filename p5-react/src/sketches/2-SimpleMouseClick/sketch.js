@@ -6,6 +6,8 @@ export default function (p) {
     p.createCanvas(640, 480);
     p.noStroke();
     p.background(151);
+    p.wSlider = p.createSlider(0, 255, 50);
+    p.wSlider.position(20, 20);
   }
 
   p.draw = function() {
@@ -19,13 +21,13 @@ export default function (p) {
       } else {
         p.h -= p.colorV
       }
-      
+
       let c = p.color('hsb(' + Math.floor(p.map(p.h, 0, 100, 0, 255)) +', 80%, 75%)')
 
       // console.log(c.levels)
       // console.log(p.h)
       p.fill(c);
-      p.ellipse(p.mouseX, p.mouseY, 50, 50);
+      p.ellipse(p.mouseX, p.mouseY, p.wSlider.value(), p.wSlider.value());
     }
   }
 }

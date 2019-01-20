@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import p5 from 'p5';
+import 'p5/lib/addons/p5.dom';
 import sketch from "./sketch.js";
 
 class SimpleMouseClick extends Component {
