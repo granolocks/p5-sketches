@@ -5,6 +5,7 @@ import SimpleMouseClick  from './2-SimpleMouseClick/SimpleMouseClick'
 import SimpleTrig  from './3-SimpleTrig/SimpleTrig'
 import PieChart  from './4-PieChart/PieChart'
 import Recaman  from './5-Recaman/Recaman'
+import UnitCircle  from './6-UnitCircle/UnitCircle'
 
 class SketchBook extends Component {
 
@@ -25,8 +26,8 @@ class SketchBook extends Component {
       "2 Simple Mouse Click": <SimpleMouseClick />,
       "3 Simple Trig": <SimpleTrig />,
       "4 Pie Chart": <PieChart />,
-      "5 Recaman": <Recaman />
-
+      "5 Recaman": <Recaman />,
+      "6 Unit Circle": <UnitCircle />,
     }
   }
 
