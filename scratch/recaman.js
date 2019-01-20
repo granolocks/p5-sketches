@@ -12,7 +12,7 @@ var recamanSequence = [
   278, 122, 279, 121, 280, 120, 281, 119, 282, 118, 283, 117, 284, 116, 285
 ]
 
-var canvasWidth      = 2560,
+var canvasWidth      = 1000,
     canvasHeight     = 1440,
     xMargin          = 75,
     recamanMaxNumber = Math.max(...recamanSequence),

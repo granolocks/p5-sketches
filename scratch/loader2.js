@@ -80,7 +80,7 @@ function draw() {
         pIndex++
       } else {
         pIndex--
-      }
+        }
     }
     c = 0;
   }
