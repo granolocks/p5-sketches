@@ -7,6 +7,7 @@ import SimpleTrig  from './3-SimpleTrig/SimpleTrig'
 import PieChart  from './4-PieChart/PieChart'
 import Recaman  from './5-Recaman/Recaman'
 import UnitCircle  from './6-UnitCircle/UnitCircle'
+import DyingLightLoader  from './7-DyingLightLoader/DyingLightLoader'
 
 class SketchBook extends Component {
 
@@ -29,6 +30,7 @@ class SketchBook extends Component {
       "Pie Chart": <PieChart />,
       "Recaman": <Recaman />,
       "Unit Circle": <UnitCircle />,
+      "Dying Light Loader": <DyingLightLoader />
     }
   }
 
