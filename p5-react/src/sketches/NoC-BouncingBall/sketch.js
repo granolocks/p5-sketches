@@ -9,6 +9,7 @@ function Bouncer(p, location, velocity, color, size = 30) {
     this.edges();
     this.display();
   }
+  
   this.display = function(){
     // draw pretty grid lines
     p.stroke(55)

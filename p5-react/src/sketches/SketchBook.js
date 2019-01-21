@@ -13,6 +13,7 @@ import PerlinNoiseGraph  from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
 import BouncingBall  from './NoC-BouncingBall/BouncingBall'
 import VectorSubtractionToMouse  from './NoC-VectorSubtractionToMouse/VectorSubtractionToMouse'
 import Vectors  from './NoC-Vectors/Vectors'
+import Accelerators  from './NoC-Accelerators/Accelerators'
 
 class SketchBook extends Component {
 
@@ -41,7 +42,8 @@ class SketchBook extends Component {
       "NoC Random Walkers": <RandomWalker />,
       "NoC Bouncing Ball": <BouncingBall />,
       "Vector Subtraction to Mouse": <VectorSubtractionToMouse />,
-      "Vectors": <Vectors />
+      "Vectors": <Vectors />,
+      "Accelerators": <Accelerators />
 
     }
   }
