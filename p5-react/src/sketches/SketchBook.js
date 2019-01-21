@@ -10,6 +10,9 @@ import UnitCircle  from './6-UnitCircle/UnitCircle'
 import DyingLightLoader  from './7-DyingLightLoader/DyingLightLoader'
 import RandomWalker  from './NoC-RandomWalker/RandomWalker'
 import PerlinNoiseGraph  from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
+import BouncingBall  from './NoC-BouncingBall/BouncingBall'
+import VectorSubtractionToMouse  from './NoC-VectorSubtractionToMouse/VectorSubtractionToMouse'
+import Vectors  from './NoC-Vectors/Vectors'
 
 class SketchBook extends Component {
 
@@ -32,10 +35,14 @@ class SketchBook extends Component {
       "Simple Trig": <SimpleTrig />,
       "Pie Chart": <PieChart />,
       "Recaman": <Recaman />,
-      "Unit Circle": <UnitCircle />,
       "Dying Light Loader": <DyingLightLoader />,
       "Perlin Noise Graph (slow)": <PerlinNoiseGraph />,
-      "NoC Random Walkers": <RandomWalker />
+      "Unit Circle": <UnitCircle />,
+      "NoC Random Walkers": <RandomWalker />,
+      "NoC Bouncing Ball": <BouncingBall />,
+      "Vector Subtraction to Mouse": <VectorSubtractionToMouse />,
+      "Vectors": <Vectors />
+
     }
   }
 

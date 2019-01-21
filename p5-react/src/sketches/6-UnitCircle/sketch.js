@@ -136,7 +136,8 @@ export default function (p5object) {
     // // console.log(p.normalize())
     p5object.resetMatrix()
     p5object.translate(p5object.canvasX/2, p5object.canvasY/2)
-
+    // let t = p5object.tan(p5object.theta);
+    // p5object.ellipse((rad*t*t) + rad + (rad*t) , 0, 5,5)
     // draw the unit circle
     p5object.stroke(255);
     p5object.ellipse(0,0,rad*2);

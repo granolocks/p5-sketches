@@ -124,8 +124,8 @@ p.slanty = new Walker(p, 'Magenta', function() {
     p.random.doGo()
     p.leftLeaning.doGo()
     p.threeWay.doGo()
-    p.perlinWalker.doGo()
-    p.perlinWalker2.doGo()
+    // p.perlinWalker.doGo()
+    // p.perlinWalker2.doGo()
     p.upLeaning.doGo()
     p.slanty.doGo()
   }
