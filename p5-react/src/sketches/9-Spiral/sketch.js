@@ -39,18 +39,18 @@ export default function (p) {
   p.radius = 1;
   p.shapes = [];
   p.thetaShapeStep = p.PI / 180;
-  p.radiusStep = 0.1;
+  p.radiusStep = p.PI/10;
   p.c = 0
   p.last = p.createVector(0,0)
   p.done = false
 
   p.draw = function() {
     p.translate(p.width/2, p.height/2);
-    p.rotate(p.theta/4)
+    p.rotate(p.theta/12)
     p.background(0)
-    p.noStroke();
-    // p.stroke(255);
-    // p.strokeWeight(0.2);
+    // p.noStroke();
+    p.stroke('red');
+    p.strokeWeight(0.2);
 
     if (p.radius > p.width/2 - 10) {
       p.done = true
@@ -74,18 +74,22 @@ export default function (p) {
         }
       } else {
         p.beginShape()
-          p.fill(p.spiralColors[workingShape.c])
+          // p.fill(p.spiralColors[workingShape.c])
+          p.fill('blue')
+          p.stroke('blue')
           p.vertex(0, 0);
           p.vertex(workingShape.a.x, workingShape.a.y)
           p.vertex(workingShape.b.x, workingShape.b.y)
         p.endShape(p.CLOSE)
       }
     }
+    p.stroke('red');
 
     for (var i = p.shapes.length - 1; i>0; i--){
       let shape = p.shapes[i];
       p.beginShape()
-        p.fill(p.spiralColors[shape.c])
+        p.noFill()
+        // p.fill(p.spiralColors[shape.c])
         p.vertex(0, 0);
         p.vertex(shape.a.x, shape.a.y)
         p.vertex(shape.b.x, shape.b.y)
