@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './SketchBook.css';
 
-import SimpleCircle  from './1-SimpleCircle/SimpleCircle'
-import SimpleMouseClick  from './2-SimpleMouseClick/SimpleMouseClick'
-import SimpleTrig  from './3-SimpleTrig/SimpleTrig'
-import PieChart  from './4-PieChart/PieChart'
-import Recaman  from './5-Recaman/Recaman'
-import UnitCircle  from './6-UnitCircle/UnitCircle'
-import DyingLightLoader  from './7-DyingLightLoader/DyingLightLoader'
-import RandomWalker  from './NoC-RandomWalker/RandomWalker'
-import PerlinNoiseGraph  from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
-import BouncingBall  from './NoC-BouncingBall/BouncingBall'
+import SimpleCircle from './1-SimpleCircle/SimpleCircle'
+import SimpleMouseClick from './2-SimpleMouseClick/SimpleMouseClick'
+import SimpleTrig from './3-SimpleTrig/SimpleTrig'
+import PieChart from './4-PieChart/PieChart'
+import Recaman from './5-Recaman/Recaman'
+import UnitCircle from './6-UnitCircle/UnitCircle'
+import DyingLightLoader from './7-DyingLightLoader/DyingLightLoader'
+import AnimatedLogo from './8-AnimatedLogo/AnimatedLogo'
+import Spiral from './9-Spiral/Spiral'
+
+import RandomWalker from './NoC-RandomWalker/RandomWalker'
+import PerlinNoiseGraph from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
+import BouncingBall from './NoC-BouncingBall/BouncingBall'
 import VectorSubtractionToMouse  from './NoC-VectorSubtractionToMouse/VectorSubtractionToMouse'
-import Vectors  from './NoC-Vectors/Vectors'
-import Accelerators  from './NoC-Accelerators/Accelerators'
+import Vectors from './NoC-Vectors/Vectors'
+import Accelerators from './NoC-Accelerators/Accelerators'
 
 class SketchBook extends Component {
 
@@ -43,7 +46,9 @@ class SketchBook extends Component {
       "NoC Bouncing Ball": <BouncingBall />,
       "Vector Subtraction to Mouse": <VectorSubtractionToMouse />,
       "Vectors": <Vectors />,
-      "Accelerators": <Accelerators />
+      "AnimatedLogo": <AnimatedLogo />,
+      "Accelerators": <Accelerators />,
+      "Spiral": <Spiral />,
 
     }
   }

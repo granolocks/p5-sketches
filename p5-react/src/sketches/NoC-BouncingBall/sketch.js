@@ -9,7 +9,7 @@ function Bouncer(p, location, velocity, color, size = 30) {
     this.edges();
     this.display();
   }
-  
+
   this.display = function(){
     // draw pretty grid lines
     p.stroke(55)
@@ -87,7 +87,6 @@ export default function (p) {
     p.background(0);
     for (var i = 0; i < p.bouncers.length; i++) {
       p.bouncers[i].doGo();
-
     }
   }
 }

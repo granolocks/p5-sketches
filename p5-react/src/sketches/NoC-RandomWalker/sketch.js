@@ -21,7 +21,7 @@ function Walker(p, color, stepFn) {
     }
   }
   this.doGo = function() {
-    for (var i=0; i < 25; i++) {
+    for (var i=0; i < 5; i++) {
       this.step();
       this.edges();
       this.display();
@@ -84,6 +84,32 @@ export default function (p) {
     }
   }
   );
+  p.mouseHunter = new Walker(p, 'skyblue', function() {
+    let s = Math.random(1);
+    if  (0 < s && s <= 0.20) {
+      this.y++
+    } else if (0.2 < s && s <= 0.40) {
+       this.y--
+    } else if (0.40 < s && s <= 0.6) {
+      this.x++
+    } else if (0.6 < s && s <= 0.8) {
+      this.x--
+    } else {
+      let old = p.createVector(this.x, this.y);
+      let mouse = p.createVector(p.mouseX, p.mouseY);
+      mouse.sub(old);
+      mouse.normalize()
+      mouse.mult(1);
+
+      let next = p.createVector(this.x, this.y);
+      next.add(mouse);
+
+      this.x = next.x
+      this.y = next.y
+
+  }
+}
+);
   p.upLeaning = new Walker(p, 'yellow', function() {
     let s = Math.random(1);
     if  (0 < s && s <= 0.2) {
@@ -121,11 +147,13 @@ p.slanty = new Walker(p, 'Magenta', function() {
 }
 
   p.draw = function() {
+    p.background(0,5);
     p.random.doGo()
     p.leftLeaning.doGo()
     p.threeWay.doGo()
     // p.perlinWalker.doGo()
     // p.perlinWalker2.doGo()
+    p.mouseHunter.doGo()
     p.upLeaning.doGo()
     p.slanty.doGo()
   }

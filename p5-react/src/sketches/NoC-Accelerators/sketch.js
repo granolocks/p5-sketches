@@ -66,13 +66,13 @@ function MouseChaser(p, xOffset, color, acceleration=false) {
 
   // Add a new property
   this.step = function(){
-    let target = p.mouseX;
     let currentV = p.createVector(this.location.x, this.location.y);
     let targetV = p.createVector(p.mouseX, this.location.y);
     targetV.sub(currentV)
     if (targetV.mag() > 10) {
+      let m = targetV.mag()
       targetV.normalize()
-      targetV.mult(0.1)
+      targetV.mult(0.001 * m)
       this.acceleration = targetV;
     } else {
       this.accelleration = p.createVector(0,0)
@@ -89,14 +89,15 @@ function MouseChaser(p, xOffset, color, acceleration=false) {
 }
 
 export default function (p) {
+  p.accelerators = [
+    new Accelerator(p, 1, 'MediumTurquoise'),
+    new Accelerator(p, 2, 'Coral', p.createVector(0.001,0)),
+    new LeftRightKeys(p, 3, 'hotpink', p.createVector(0.1,0)),
+    new MouseChaser(p, 4, 'Gainsboro')
+  ];
+
   p.setup = function() {
     p.createCanvas(1000, 600);
-    p.accelerators = [
-      new Accelerator(p, 1, 'MediumTurquoise'),
-      new Accelerator(p, 2, 'Coral', p.createVector(0.001,0)),
-      new LeftRightKeys(p, 3, 'hotpink'),
-      new MouseChaser(p, 4, 'Gainsboro')
-    ]
   }
 
   p.keyPressed = function() {
