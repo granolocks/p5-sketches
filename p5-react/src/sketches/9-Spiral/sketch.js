@@ -32,11 +32,12 @@ export default function (p) {
       'DodgerBlue', //g
       'MediumSpringGreen' //b
     ]
+
     for (var i = 0; i < colors.length; i++) {
       let c1 = p.color(colors[i]);
       p.spiralColors[i] = p.color(c1.levels[0],c1.levels[1], c1.levels[2], 130)
-
     }
+
   }
 
   p.theta = 0;
@@ -44,20 +45,20 @@ export default function (p) {
   p.radius = 0;
   p.shapes = [];
   p.thetaShapeStep = p.PI / p.random(180); // p.PI / 180
-  p.radiusStep = p.PI/(Math.floor(p.random(20))) + 0.001; // pi.PI/10
+  p.radiusStep = p.PI / (Math.floor(p.random(20)) + 0.001); // pi.PI/10
+  p.stepOffset = Math.floor(p.random(24)) + 1 // 12
   p.c = 0
   p.last = p.createVector(0,0)
   p.done = false
 
   p.draw = function() {
-
     p.background('LightSteelBlue')
-
     p.fill(0)
     p.stroke(0)
-    p.text("Spiral generated with the following characteristics:",25,25)
-    p.text(`θ Step: ${p.thetaShapeStep}, Radius Step: ${p.radiusStep}`,25,45)
-    p.text("Reload the page to see another random spiral!",25,65)
+    p.text("Spiral generated with the following characteristics:",25,p.height - 85)
+    p.text(`θ Step: ${p.thetaShapeStep}, Radius Step: ${p.radiusStep}`, 25, p.height - 65)
+    p.text(`Frame: ${p.c}, Shape cut every ${p.stepOffset} frames`,25, p.height - 45)
+    p.text("Reload the page to see another random spiral!",25,p.height - 25)
 
 
     p.translate(p.width/2, p.height/2);
@@ -78,7 +79,7 @@ export default function (p) {
         c: p.colorIndex
       };
 
-      if (p.c % 12 == 0) {
+      if (p.c % p.stepOffset == 0) {
         p.shapes.push(workingShape);
         p.last = current;
         if (p.colorIndex == p.spiralColors.length -1) {
