@@ -2,11 +2,17 @@ export default function (p) {
   p.rad = 250;
   p.setup = function() {
     p.createCanvas(600, 600);
-    p.background(255);
+    p.background(0);
     p.ellipseMode(p.CENTER)
     p.noFill()
     p.translate(p.width/2,p.height/2);
     p.ellipse(0,0,p.rad ,p.rad )
+    p.stroke('LavenderBlush')
+    p.fill('LavenderBlush')
+    p.ellipse(0,0,p.rad*2.1 ,p.rad*2.1 )
+    p.stroke(0)
+    p.fill(255)
+    p.ellipse(0,0,p.rad*2 ,p.rad*2 )
 
     let colors = [
       p.color(220,20,60,30),

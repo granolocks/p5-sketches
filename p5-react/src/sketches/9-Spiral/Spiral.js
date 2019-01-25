@@ -4,13 +4,13 @@ import p5 from 'p5';
 
 class Spiral extends Component {
   componentDidMount() {
-    new p5(sketch, 'simpleCircle');
+    new p5(sketch, 'Spiral');
   }
 
   render() {
     return (
       <div>
-        <div id="simpleCircle"></div>
+        <div id="Spiral"></div>
         <h3>&nbsp;Source Code</h3>
         <pre>{'' + sketch}</pre>
       </div>

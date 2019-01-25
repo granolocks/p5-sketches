@@ -44,7 +44,7 @@ export default function (p) {
   p.colorIndex = 0;
   p.radius = 0;
   p.shapes = [];
-  p.thetaShapeStep = p.PI / p.random(180); // p.PI / 180
+  p.thetaShapeStep = p.PI / p.random(180);  // p.PI / 180
   p.radiusStep = p.PI / (Math.floor(p.random(20)) + 0.001); // pi.PI/10
   p.stepOffset = Math.floor(p.random(24)) + 1 // 12
   p.c = 0
