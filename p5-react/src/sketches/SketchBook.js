@@ -11,6 +11,9 @@ import DyingLightLoader from './7-DyingLightLoader/DyingLightLoader'
 import AnimatedLogo from './8-AnimatedLogo/AnimatedLogo'
 import Spiral from './9-Spiral/Spiral'
 import OverlappingCircles from './10-OverlappingCircles/OverlappingCircles'
+import Drawingtrig from './11-Drawingtrig/Drawingtrig'
+import MandelbrotChords from './12-MandelbrotChords/MandelbrotChords'
+
 import RandomWalker from './NoC-RandomWalker/RandomWalker'
 import PerlinNoiseGraph from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
 import BouncingBall from './NoC-BouncingBall/BouncingBall'
@@ -50,6 +53,8 @@ class SketchBook extends Component {
       "Accelerators": <Accelerators />,
       "Spiral": <Spiral />,
       "Overlapping Circles": <OverlappingCircles />,
+      "Drawingtrig": <Drawingtrig />,
+      "MandelbrotChords": <MandelbrotChords />
     }
   }
 

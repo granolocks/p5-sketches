@@ -19,6 +19,10 @@ export default function (p5object) {
      return +(Math.round(i + "e+5")  + "e-5");
   }
 
+  p5object.tangentXIntercept = function(radius, theta) {
+    return radius / p5object.cos(theta)
+  }
+
   p5object.polarToCartesian = function (radius, theta) {
     let x = p5object.radius * p5object.cos(p5object.theta);
     let y = p5object.radius * p5object.sin(p5object.theta);
@@ -62,6 +66,8 @@ export default function (p5object) {
     p5object.text('triangle area: ' + p5object.roundFloat(((t_base/rad) * (t_height/rad) ) / 2) + "r^2" , 10, 100);
     p5object.fill('red');
     p5object.text('cord length: ' + p5object.roundFloat(p5object.dist(p.x, p.y, cordEnd.x, cordEnd.y)/rad) + "r", 10,120);
+    p5object.fill('white');
+    p5object.text('tan x int: ' + p5object.roundFloat(p5object.tangentXIntercept(rad, p5object.theta)/rad)  + "r", 10, 140);
 
     //  move to the center of the canvas
     p5object.translate(p5object.canvasX/2, p5object.canvasY/2);
@@ -140,9 +146,11 @@ export default function (p5object) {
     // p5object.ellipse((rad*t*t) + rad + (rad*t) , 0, 5,5)
     // draw the unit circle
     p5object.stroke(255);
-    p5object.ellipse(0,0,rad*2);
+    p5object.ellipse(0,0, rad*2, rad*2
+    )
+    p5object.fill(255);
 
-
+    p5object.ellipse(p5object.tangentXIntercept(rad, p5object.theta), 0, 5,5);
     // draw the point
     p5object.fill(255);
     p5object.ellipse(p.x, p.y, p5object.pointSize);
