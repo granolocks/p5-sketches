@@ -2,7 +2,7 @@ export default function (p) {
   p.circleSegments = 200;
   p.pts = [];
   p.radius = 290;
-  p.timesTable = 4;
+  p.timesTable = 53;
 
   p.calcConnection = function(i) {
     return (p.timesTable*i)%p.circleSegments
