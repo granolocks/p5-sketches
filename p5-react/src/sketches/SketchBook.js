@@ -13,6 +13,7 @@ import Spiral from './9-Spiral/Spiral'
 import OverlappingCircles from './10-OverlappingCircles/OverlappingCircles'
 import Drawingtrig from './11-Drawingtrig/Drawingtrig'
 import MandelbrotChords from './12-MandelbrotChords/MandelbrotChords'
+import ShootingGame from './13-ShootingGame/ShootingGame'
 
 import RandomWalker from './NoC-RandomWalker/RandomWalker'
 import PerlinNoiseGraph from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
@@ -20,6 +21,7 @@ import BouncingBall from './NoC-BouncingBall/BouncingBall'
 import VectorSubtractionToMouse  from './NoC-VectorSubtractionToMouse/VectorSubtractionToMouse'
 import Vectors from './NoC-Vectors/Vectors'
 import Accelerators from './NoC-Accelerators/Accelerators'
+import Forces from './NoC-Forces/Forces'
 
 class SketchBook extends Component {
 
@@ -54,7 +56,11 @@ class SketchBook extends Component {
       "Spiral": <Spiral />,
       "Overlapping Circles": <OverlappingCircles />,
       "Drawingtrig": <Drawingtrig />,
-      "MandelbrotChords": <MandelbrotChords />
+      "MandelbrotChords": <MandelbrotChords />,
+      "Forces": <Forces />,
+      "ShootingGame": <ShootingGame />,
+
+
     }
   }
 
