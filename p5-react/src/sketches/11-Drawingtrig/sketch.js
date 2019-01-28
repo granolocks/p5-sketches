@@ -11,7 +11,7 @@ export default function (p) {
 
   p.radius = 190;
   p.theta = 0;
-  p.thetaVel = 0.01
+  p.thetaVel = 0.02
   p.pts = []
   p.draw = function() {
     p.strokeWeight(1)
