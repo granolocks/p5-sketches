@@ -26,10 +26,10 @@ var Bullet = function(p,x,y,v) {
 
   this.collide = function(barrier) {
     if (
-      this.xy.x > barrier.xy.x &&
-      this.xy.x < barrier.xy.x + barrier.width &&
-      this.xy.y > barrier.xy.y &&
-      this.xy.y < barrier.xy.y + barrier.height
+      this.xy.x + this.velocity.x > barrier.xy.x &&
+      this.xy.x + this.velocity.x < barrier.xy.x + barrier.width &&
+      this.xy.y + this.velocity.y > barrier.xy.y &&
+      this.xy.y + this.velocity.y < barrier.xy.y + barrier.height
     ) {
       let bVec = p.createVector(barrier.xy.x+(barrier.width/2), barrier.xy.y+(barrier.height/2))
       bVec.sub(this.xy)
@@ -158,10 +158,10 @@ var Character = function(p, mass=5){
 
         // let pt = p.createVector(px + this.x(), py + this.y())
         if (
-          px > barrier.xy.x &&
-          px < barrier.xy.x + barrier.width &&
-          py > barrier.xy.y &&
-          py < barrier.xy.y + barrier.height
+          px + this.velocity.x > barrier.xy.x &&
+          px + this.velocity.x < barrier.xy.x + barrier.width &&
+          py + this.velocity.y > barrier.xy.y &&
+          py + this.velocity.y < barrier.xy.y + barrier.height
         ) {
           let bVec = p.createVector(barrier.xy.x+(barrier.width/2), barrier.xy.y+(barrier.height/2))
           bVec.sub(this.location)
@@ -360,10 +360,6 @@ export default function (p) {
     p.character.checkKeys()
     p.character.lookAtMouse();
     p.character.display();
-    for (var i = 0; i < p.bullets.length; i++) {
-      p.bullets[i].update()
-      p.bullets[i].display()
-    }
     for (var i = 0; i < p.barriers.length; i++) {
       p.character.collide(p.barriers[i])
       for (var j = 0; j < p.bullets.length; j++) {
@@ -371,6 +367,12 @@ export default function (p) {
       }
       p.barriers[i].display()
     }
+
+    for (var i = 0; i < p.bullets.length; i++) {
+      p.bullets[i].update()
+      p.bullets[i].display()
+    }
+
     p.cleanUpBullets()
     p.character.checkEdges(0, p.width, 0, p.height)
   }

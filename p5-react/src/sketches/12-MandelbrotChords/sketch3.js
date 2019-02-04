@@ -1,5 +1,5 @@
 export default function (p) {
-  p.totalLines = 200;
+  p.totalLines = 300;
   p.multiplier = 0;
   p.pts = [];
   p.radius = 290;
@@ -22,6 +22,9 @@ export default function (p) {
     p.background(0);
     p.ellipseMode(p.CENTER)
     p.colorMode(p.HSB, 100);
+    p.nSlider = p.createSlider(p.multiplier, 300, 0, 0.25);
+    p.nSlider.position(5, 20);
+    p.nSlider.style('width', '200px');
     for (var i = 0; i < p.totalLines; i++) {
       let t = p.TWO_PI / p.totalLines * i;
       p.pts[i] = p.polarToCartesian(p.radius,t);
@@ -29,6 +32,7 @@ export default function (p) {
   }
 
   p.draw = function() {
+    p.multiplier = p.nSlider.value()
     p.background(0)
     p.fill(255)
     p.stroke(255)
@@ -66,6 +70,6 @@ export default function (p) {
       let xy = p.polarToCartesian(p.radius, p.TWO_PI / p.totalLines * i)
       p.ellipse(xy.x,xy.y,3,3)
     }
-    p.multiplier += 0.0087
+    p.multiplier += 0 //0.0087
   }
 }

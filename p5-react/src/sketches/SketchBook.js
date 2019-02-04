@@ -14,6 +14,7 @@ import OverlappingCircles from './10-OverlappingCircles/OverlappingCircles'
 import Drawingtrig from './11-Drawingtrig/Drawingtrig'
 import MandelbrotChords from './12-MandelbrotChords/MandelbrotChords'
 import ShootingGame from './13-ShootingGame/ShootingGame'
+import VectorMatrixRotation from './14-VectorMatrixRotation/VectorMatrixRotation'
 
 import RandomWalker from './NoC-RandomWalker/RandomWalker'
 import PerlinNoiseGraph from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
@@ -59,6 +60,7 @@ class SketchBook extends Component {
       "MandelbrotChords": <MandelbrotChords />,
       "Forces": <Forces />,
       "ShootingGame": <ShootingGame />,
+      "VectorMatrixRotation": <VectorMatrixRotation />
 
 
     }
