@@ -12,8 +12,8 @@ var Mover = function(p, mass=5){
 
   this.display = function() {
     p.strokeWeight(2)
-    p.stroke('orange')
-    p.fill('hotpink')
+    p.stroke('lightblue')
+    p.fill('green')
     p.ellipse(this.x(), this.y(), this.size)
   }
 
@@ -67,7 +67,7 @@ export default function (p) {
   }
 
   p.draw = function() {
-    p.background(0,0,0,30)
+    p.background(0,0,0,75)
     p.drawFloor()
     let wind = p.createVector(0.2,0);
     for (var i = 0; i<p.movers.length; i++) {

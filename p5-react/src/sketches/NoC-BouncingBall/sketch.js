@@ -84,7 +84,7 @@ export default function (p) {
   }
 
   p.draw = function() {
-    p.background(0);
+    p.background(0,100);
     for (var i = 0; i < p.bouncers.length; i++) {
       p.bouncers[i].doGo();
     }

@@ -4,7 +4,7 @@ var Barrier = function(p, x, y, size=100){
   this.width = size
 
   this.display = function(){
-    p.noStroke();
+    p.stroke('red');
     p.fill(151)
     p.rect(this.xy.x, this.xy.y, this.width, this.height);
   }
@@ -322,7 +322,9 @@ export default function (p) {
       new Barrier(p, 500, 200,50,50),
       new Barrier(p, 500, 500),
       new Barrier(p, 100, 500),
-      new Barrier(p, 200, 500)
+      new Barrier(p, 200, 500),
+      new Barrier(p, 280, 150,30,30)
+
     ];
     // p.barriers = []
     //

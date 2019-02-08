@@ -15,6 +15,8 @@ import Drawingtrig from './11-Drawingtrig/Drawingtrig'
 import MandelbrotChords from './12-MandelbrotChords/MandelbrotChords'
 import ShootingGame from './13-ShootingGame/ShootingGame'
 import VectorMatrixRotation from './14-VectorMatrixRotation/VectorMatrixRotation'
+import SimpleShip from './15-SimpleShip/SimpleShip'
+import LissajousCurves from './16-LissajousCurves/LissajousCurves'
 
 import RandomWalker from './NoC-RandomWalker/RandomWalker'
 import PerlinNoiseGraph from './NoC-PerlinNoiseGraph/PerlinNoiseGraph'
@@ -60,7 +62,9 @@ class SketchBook extends Component {
       "MandelbrotChords": <MandelbrotChords />,
       "Forces": <Forces />,
       "ShootingGame": <ShootingGame />,
-      "VectorMatrixRotation": <VectorMatrixRotation />
+      "VectorMatrixRotation": <VectorMatrixRotation />,
+      "Simple Ship": <SimpleShip />,
+      "LissajousCurves": <LissajousCurves />,
 
 
     }
