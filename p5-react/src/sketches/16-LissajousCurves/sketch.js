@@ -73,28 +73,47 @@ export default function (p) {
         anglesY[i] += anglesV[i]*2
       p.pop()
     }
+    let lineX;
+    let lineY;
     let ellipseX;
     let ellipseY;
+    // hide tracking lines when done
+    if (anglesX[9] < p.TWO_PI * 10) {
+      for (var i=1; i<10; i++){
+        for (var j=1; j<10; j++) {
+          lineX = vertices.x[i].slice(-1)[0]
+          lineY = vertices.y[j].slice(-1)[0]
+          p.stroke(50)
+          p.strokeWeight(.5)
+          p.line((i*size)+(size/2) + lineX, 0, (i*size)+(size/2) + lineX, p.height);
+          p.line(0, (j*size)+(size/2) + lineY, p.width, (j*size)+(size/2) + lineY,);
+        }
+      }
+    }
+
     for (var i=1; i<10; i++){
       for (var j=1; j<10; j++) {
         ellipseX = vertices.x[i].slice(-1)[0]
         ellipseY = vertices.y[j].slice(-1)[0]
-        p.stroke(50)
-        p.strokeWeight(.5)
-        p.line((i*size)+(size/2) + ellipseX, 0, (i*size)+(size/2) + ellipseX, p.height);
-        p.line(0, (j*size)+(size/2) + ellipseY, p.width, (j*size)+(size/2) + ellipseY,);
+        // p.stroke(50)
+        // p.strokeWeight(.5)
+        // p.line((i*size)+(size/2) + ellipseX, 0, (i*size)+(size/2) + ellipseX, p.height);
+        // p.line(0, (j*size)+(size/2) + ellipseY, p.width, (j*size)+(size/2) + ellipseY,);
 
         p.push()
-        p.translate((i*size)+(size/2), (j*size)+(size/2));
-        let h = p.map(i+j, 2, 22, 0, 100)
-        p.stroke(h, 100, 50)
-        p.strokeWeight(2);
-        p.beginShape();
-        for (var xi=0; xi<=vertices.x[i].length; xi++) {
-          p.vertex(vertices.x[i][xi], vertices.y[j][xi])
-        }
-        p.endShape();
-        p.ellipse(ellipseX, ellipseY, 5,5)
+          p.translate((i*size)+(size/2), (j*size)+(size/2));
+          let h = p.map(i+j, 2, 22, 0, 100)
+          p.stroke(h, 100, 50)
+          p.strokeWeight(2);
+          p.beginShape();
+          for (var xi=0; xi<=vertices.x[i].length; xi++) {
+            p.vertex(vertices.x[i][xi], vertices.y[j][xi])
+          }
+          p.endShape();
+          // hide tracking ellipse when finishing
+          if (anglesX[9] < p.TWO_PI * 10) {
+            p.ellipse(ellipseX, ellipseY, 5,5)
+          }
         p.pop()
 
       }
